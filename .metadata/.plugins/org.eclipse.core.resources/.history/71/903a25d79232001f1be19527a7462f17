@@ -1,0 +1,13 @@
+package view;
+
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+
+@WebServlet("/bai1")
+
+public class bai1 extends HttpServlet{
+ 
+	@Override
+	
+	
+}

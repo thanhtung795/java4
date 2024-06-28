@@ -1,0 +1,50 @@
+package CRUD;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import Model.User;
+
+public class ItemService {
+	private List<User> items = new ArrayList<>();
+	private int nextId = 1;
+
+	// Thêm đối tượng
+	public User addItem(User item) {
+		item.setId(nextId++);
+		items.add(item);
+		return item;
+	}
+
+	// Xóa đối tượng
+	public boolean deleteItem(int id) {
+		Optional<User> itemToRemove = items.stream().filter(item -> item.getId() == id).findFirst();
+		if (itemToRemove.isPresent()) {
+			items.remove(itemToRemove.get());
+			return true;
+		}
+		return false;
+	}
+
+	// Sửa đối tượng
+	public boolean updateItem(User updatedItem) {
+		for (int i = 0; i < items.size(); i++) {
+			if (items.get(i).getId() == updatedItem.getId()) {
+				items.set(i, updatedItem);
+				return true;
+			}
+		}
+		return false;
+	}
+
+	// Lấy tất cả các đối tượng
+	public List<User> getAllItems() {
+		return new ArrayList<>(items);
+	}
+
+	// Lấy đối tượng theo ID
+	public User getItemById(int id) {
+		return items.stream().filter(item -> item.getId() == id).findFirst().orElse(null);
+	}
+}

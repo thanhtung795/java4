@@ -1,0 +1,18 @@
+package CRUD;
+
+public class HttpUtil {
+	private String value;
+
+	public HttpUtil(String value) {
+		this.value = value;
+	}
+
+	public <T> T toModel(Class<T> tClass) {
+		try {
+			return new HttpUtil().readValue(value, tClass);
+		} catch (Exception e) {
+			System.out.print(e.getMessage());
+		}
+		return null;
+	}
+}

@@ -1,0 +1,55 @@
+package controller;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/bai2")
+public class bai2 extends HttpServlet {
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.getRequestDispatcher("bai2.jsp").forward(req, resp);
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String laySoTN = req.getParameter("txtSoThuNhat");
+		String laySoTH = req.getParameter("txtSoThuHai");
+		String layPhepTinh = req.getParameter("txtPhepTinh");
+
+		double SoTN = Double.parseDouble(laySoTN);
+		double SoTH = Double.parseDouble(laySoTH);
+
+		double tong = 0;
+		switch (layPhepTinh) {
+		case "+":
+			tong = SoTN + SoTH;
+			break;
+		case "-":
+			tong = SoTN - SoTH;
+			break;
+		case "*":
+			tong = SoTN * SoTH;
+			break;
+		case "/":
+			if (SoTH != 0) {
+				tong = SoTN / SoTH;
+			} else {
+				resp.getWriter().println("Không thể chia cho 0");
+				return;
+			}
+			break;
+		default:
+			resp.getWriter().println("Phép tính không hợp lệ");
+		}
+		req.setAttribute("SoTN", SoTN);
+		req.setAttribute("SoTH", SoTH);
+		req.setAttribute("PhepTinh", layPhepTinh);
+		req.setAttribute("ketQua", tong);
+		req.getRequestDispatcher("bai2.jsp").forward(req, resp);
+	}
+}

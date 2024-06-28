@@ -1,0 +1,48 @@
+package CRUD;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+public class ItemService {
+    private List<Item> items = new ArrayList<>();
+    private int nextId = 1;
+
+    // Thêm đối tượng
+    public Item addItem(Item item) {
+        item.setId(nextId++);
+        items.add(item);
+        return item;
+    }
+
+    // Xóa đối tượng
+    public boolean deleteItem(int id) {
+        Optional<Item> itemToRemove = items.stream().filter(item -> item.getId() == id).findFirst();
+        if (itemToRemove.isPresent()) {
+            items.remove(itemToRemove.get());
+            return true;
+        }
+        return false;
+    }
+
+    // Sửa đối tượng
+    public boolean updateItem(Item updatedItem) {
+        for (int i = 0; i < items.size(); i++) {
+            if (items.get(i).getId() == updatedItem.getId()) {
+                items.set(i, updatedItem);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // Lấy tất cả các đối tượng
+    public List<Item> getAllItems() {
+        return new ArrayList<>(items);
+    }
+
+    // Lấy đối tượng theo ID
+    public Item getItemById(int id) {
+        return items.stream().filter(item -> item.getId() == id).findFirst().orElse(null);
+    }
+}

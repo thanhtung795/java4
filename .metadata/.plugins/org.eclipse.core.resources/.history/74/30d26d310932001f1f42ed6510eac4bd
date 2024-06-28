@@ -1,0 +1,27 @@
+package Fpoly.edu.vn;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class hellovServler
+ */
+@WebServlet("/hellovServler")
+public class hellovServler extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().write("<h1> helloo selrver </h1>");
+		response.getWriter().write("hello fpt");	
+				response.getWriter().write("awdadawdadwa");
+	}
+
+}
