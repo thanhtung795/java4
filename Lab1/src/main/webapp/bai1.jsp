@@ -35,6 +35,9 @@
               <li class="nav-item">
                 <a class="nav-link" href="bai3">Bài 3</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="bai3">Bài 3</a>
+              </li>
             </ul>
           </div>
         </div>
