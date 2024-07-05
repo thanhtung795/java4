@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="D:\FPT\java 4\MyProject\lab3"/>
 			<item value="D:\FPT\java 4\MyProject\Lab1"/>
 		</list>
 		<list key="projectNameTemplate">
@@ -44,15 +45,18 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
+			<item value="Lab3bai2"/>
 			<item value="API"/>
 			<item value="lmht"/>
 		</list>
 		<list key="name">
+			<item value="form"/>
 			<item value="API"/>
 			<item value="LearnAPI"/>
 			<item value="changBiet"/>
 		</list>
 		<list key="artifactId">
+			<item value="Lab3bai2"/>
 			<item value="TestAPI"/>
 			<item value="DemoAPI"/>
 			<item value="lmvn"/>
@@ -72,5 +76,23 @@
 	<section name="org.eclipse.m2e.core.pom.overview">
 	</section>
 	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+	<section name="wizardPage">
+		<list key="groupId">
+			<item value="lab3-2"/>
+			<item value="lab3bai2"/>
+			<item value="lab3"/>
+		</list>
+		<list key="name">
+			<item value="lab3"/>
+		</list>
+		<list key="artifactId">
+			<item value="lab3-2"/>
+			<item value="lab3bai2"/>
+			<item value="lab3"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
 	</section>
 </section>
