@@ -49,14 +49,20 @@
               <div class="form-group">
                 <label class="col-lg-3 control-label">Tên đăng nhập</label>
                 <div class="col-lg-8">
-                  <input class="form-control" type="text" name="txtTenDangNhap">
+                  <input class="form-control" type="text" name="txtTenDangNhap" value="${tenDangNhap}">
                 </div>
+                <c:if test="${not empty errorTDN}">
+                  <p style="color: red;">${errorTDN}</p>
+                </c:if>
               </div>
               <div class="form-group">
                 <label class="col-lg-3 control-label">Mật khẩu</label>
                 <div class="col-lg-8">
-                  <input class="form-control" type="password" name="txtMatKhau">
+                  <input class="form-control" type="password" name="txtMatKhau" value="${MatKhau }">
                 </div>
+                <c:if test="${not empty errorMK}">
+                  <p style="color: red;">${errorMK}</p>
+                </c:if>
               </div>
               <div class="form-group">
                 <label class="col-lg-3 control-label">Giới tính</label>
@@ -74,6 +80,9 @@
                     </label>
                   </div>
                 </div>
+                <c:if test="${not empty errorGT}">
+                  <p style="color: red;">${errorGT}</p>
+                </c:if>
               </div>
               <div class="form-check">
                 <input id="my-input" class="form-check-input" type="checkbox" name="chkGD" value="true">
@@ -91,28 +100,32 @@
                 <div class="form-check">
                   <input id="valorant" class="form-check-input" type="checkbox" name="soThich" value="Valorant">
                   <label for="valorant" class="form-check-label">Valorant</label>
-              </div>
-              <div class="form-check">
+                </div>
+                <div class="form-check">
                   <input id="lol" class="form-check-input" type="checkbox" name="soThich" value="LOL">
                   <label for="lol" class="form-check-label">LOL</label>
-              </div>
-              <div class="form-check">
+                </div>
+                <div class="form-check">
                   <input id="cs2" class="form-check-input" type="checkbox" name="soThich" value="CS2">
                   <label for="cs2" class="form-check-label">CS2</label>
-              </div>
-              <div class="form-check">
+                </div>
+                <div class="form-check">
                   <input id="code" class="form-check-input" type="checkbox" name="soThich" value="Code">
                   <label for="code" class="form-check-label">Code</label>
-              </div>
-              <div class="form-check">
+                </div>
+                <div class="form-check">
                   <input id="fix-bug" class="form-check-input" type="checkbox" name="soThich" value="Fix Bug">
                   <label for="fix-bug" class="form-check-label">Fix bug</label>
-              </div>              
+                </div>
+                <hr>
               </div>
+               <c:if test="${not empty errorST}">
+                  <p style="color: red;">${errorST}</p>
+                </c:if>
               <div class="form-group">
                 <label for="my-input">Ghi chú</label>
                 <textarea id="my-input" class="form-control" name="txtGhiChu"></textarea>
-            </div>            
+              </div>
               <button type="submit" class="btn btn-primary">đăng ký</button>
             </form>
           </div>

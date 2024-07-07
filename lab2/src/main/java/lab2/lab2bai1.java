@@ -32,6 +32,8 @@ public class lab2bai1 extends HttpServlet {
 		String canhAStr = req.getParameter("txtCanhA");
 		String canhBStr = req.getParameter("txtCanhB");
 		String canhCStr = req.getParameter("txtCanhC");
+		double chuVi = 0;
+		double dientich = 0;
 
 		if (canhAStr == null || canhAStr.isEmpty() || canhBStr == null || canhBStr.isEmpty() || canhCStr == null
 				|| canhCStr.isEmpty()) {
@@ -40,13 +42,30 @@ public class lab2bai1 extends HttpServlet {
 			return;
 		}
 
-		double a = Double.parseDouble(canhAStr);
-		double b = Double.parseDouble(canhBStr);
-		double c = Double.parseDouble(canhCStr);
+		try {
+			double a = Double.parseDouble(canhAStr);
+			double b = Double.parseDouble(canhBStr);
+			double c = Double.parseDouble(canhCStr);
 
-		// Tính diện tích
-		double chuVi = (a + b + c) / 2;
-		double dientich = Math.sqrt(chuVi * (a + b - c) * (a + c - b) * (b + c - a)) / 4;
+			// Kiểm tra tính hợp lệ của tam giác
+			if (a + b > c && a + c > b && b + c > a) {
+				// Tính nửa chu vi
+				double s = (a + b + c) / 2;
+
+				// Tính diện tích sử dụng công thức Heron
+				dientich = Math.sqrt(s * (s - a) * (s - b) * (s - c));
+				chuVi = a + b + c;
+
+			} else {
+				req.setAttribute("error", "Các cạnh đã nhập không tạo thành một tam giác.");
+				req.getRequestDispatcher("/lab2bai1.jsp").forward(req, resp);
+				return;
+			}
+		} catch (NumberFormatException e) {
+			req.setAttribute("error", "Không được nhập ký tự.");
+			req.getRequestDispatcher("/lab2bai1.jsp").forward(req, resp);
+			return;
+		}
 
 		// Truyền kết quả vào request và forward về trang kết quả
 		req.setAttribute("dientich", dientich);
@@ -61,7 +80,7 @@ public class lab2bai1 extends HttpServlet {
 		String canhAStr = req.getParameter("txtCanhA");
 		String canhBStr = req.getParameter("txtCanhB");
 		String canhCStr = req.getParameter("txtCanhC");
-
+		double chuvi = 0;
 		if (canhAStr == null || canhAStr.isEmpty() || canhBStr == null || canhBStr.isEmpty() || canhCStr == null
 				|| canhCStr.isEmpty()) {
 			req.setAttribute("error", "Vui lòng nhập đầy đủ các cạnh.");
@@ -69,12 +88,17 @@ public class lab2bai1 extends HttpServlet {
 			return;
 		}
 
-		double canhA = Double.parseDouble(canhAStr);
-		double canhB = Double.parseDouble(canhBStr);
-		double canhC = Double.parseDouble(canhCStr);
-
-		// Tính chu vi
-		double chuvi = canhA + canhB + canhC;
+		try {
+			double canhA = Double.parseDouble(canhAStr);
+			double canhB = Double.parseDouble(canhBStr);
+			double canhC = Double.parseDouble(canhCStr);
+			// Tính chu vi
+			chuvi = canhA + canhB + canhC;
+		} catch (Exception e) {
+			req.setAttribute("error", "Không được nhập ký tự.");
+			req.getRequestDispatcher("/lab2bai1.jsp").forward(req, resp);
+			return;
+		}
 
 		// Truyền kết quả vào request và forward về trang kết quả
 		req.setAttribute("chuvi", chuvi);
