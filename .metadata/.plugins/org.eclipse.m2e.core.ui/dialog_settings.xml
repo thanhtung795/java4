@@ -79,6 +79,9 @@
 	</section>
 	<section name="wizardPage">
 		<list key="groupId">
+			<item value="asm"/>
+			<item value="lab5"/>
+			<item value="lab2"/>
 			<item value="lab3"/>
 			<item value="lab4l"/>
 			<item value="lab3-2"/>
@@ -89,6 +92,9 @@
 			<item value="lab4"/>
 		</list>
 		<list key="artifactId">
+			<item value="asm"/>
+			<item value="lab5"/>
+			<item value="lab2"/>
 			<item value="lab3"/>
 			<item value="lab4l"/>
 			<item value="lab3-2"/>

@@ -1,4 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+  
   <!DOCTYPE html>
   <html>
 
@@ -69,13 +72,13 @@
                 <div class="col-lg-8 d-flex ">
                   <div class="form-check">
                     <label class="form-check-label">
-                      <input type="radio" class="form-check-input" name="gioiTinh" id="nam" value="true">
+                      <input type="radio" class="form-check-input" name="gioiTinh" id="nam"  ${gioiTinh eq 'true' ? 'checked' : ''} value="true">
                       Nam
                     </label>
                   </div>
                   <div class="form-check me-3">
                     <label class="form-check-label">
-                      <input type="radio" class="form-check-input" name="gioiTinh" id="nu" value="false">
+                      <input type="radio" class="form-check-input" name="gioiTinh" id="nu"  ${gioiTinh eq 'false' ? 'checked' : ''} value="false">
                       Nữ
                     </label>
                   </div>
@@ -98,23 +101,23 @@
               <div class="form-group d-flex">
                 <label for="">Sở thích: </label>
                 <div class="form-check">
-                  <input id="valorant" class="form-check-input" type="checkbox" name="soThich" value="Valorant">
+                  <input id="valorant" class="form-check-input" type="checkbox" name="soThich" value="Valorant" ${fn:contains(ST, 'Valorant') ? 'checked' : ''}>
                   <label for="valorant" class="form-check-label">Valorant</label>
                 </div>
                 <div class="form-check">
-                  <input id="lol" class="form-check-input" type="checkbox" name="soThich" value="LOL">
+                  <input id="lol" class="form-check-input" type="checkbox" name="soThich" value="LOL" ${fn:contains(ST, 'LOL') ? 'checked' : ''}>
                   <label for="lol" class="form-check-label">LOL</label>
                 </div>
                 <div class="form-check">
-                  <input id="cs2" class="form-check-input" type="checkbox" name="soThich" value="CS2">
+                  <input id="cs2" class="form-check-input" type="checkbox" name="soThich" value="CS2" ${fn:contains(ST, 'CS2') ? 'checked' : ''}>
                   <label for="cs2" class="form-check-label">CS2</label>
                 </div>
                 <div class="form-check">
-                  <input id="code" class="form-check-input" type="checkbox" name="soThich" value="Code">
+                  <input id="code" class="form-check-input" type="checkbox" name="soThich" value="Code" ${fn:contains(ST, 'Code') ? 'checked' : ''}>
                   <label for="code" class="form-check-label">Code</label>
                 </div>
                 <div class="form-check">
-                  <input id="fix-bug" class="form-check-input" type="checkbox" name="soThich" value="Fix Bug">
+                  <input id="fix-bug" class="form-check-input" type="checkbox" name="soThich" value="Fix Bug" ${fn:contains(ST, 'Fix Bug') ? 'checked' : ''}>
                   <label for="fix-bug" class="form-check-label">Fix bug</label>
                 </div>
                 <hr>
@@ -126,6 +129,9 @@
                 <label for="my-input">Ghi chú</label>
                 <textarea id="my-input" class="form-control" name="txtGhiChu"></textarea>
               </div>
+               <c:if test="${not empty errorGC}">
+                  <p style="color: red;">${errorGC}</p>
+                </c:if>
               <button type="submit" class="btn btn-primary">đăng ký</button>
             </form>
           </div>

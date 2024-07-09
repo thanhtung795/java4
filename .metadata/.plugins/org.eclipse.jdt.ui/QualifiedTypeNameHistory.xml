@@ -9,8 +9,6 @@
     <fullyQualifiedTypeName name="Model.User"/>
     <fullyQualifiedTypeName name="java.lang.UnknownError"/>
     <fullyQualifiedTypeName name="org.eclipse.jdt.internal.compiler.ast.ThisReference"/>
-    <fullyQualifiedTypeName name="java.lang.System"/>
-    <fullyQualifiedTypeName name="java.lang.Double"/>
     <fullyQualifiedTypeName name="org.apache.jasper.compiler.Node.ForwardAction"/>
     <fullyQualifiedTypeName name="java.lang.Readable"/>
     <fullyQualifiedTypeName name="java.lang.StringBuilder"/>
@@ -46,7 +44,11 @@
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="org.apache.tomcat.util.http.fileupload.MultipartStream.ItemInputStream"/>
     <fullyQualifiedTypeName name="java.lang.ArrayStoreException"/>
-    <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="java.util.Date"/>
     <fullyQualifiedTypeName name="model.item"/>
+    <fullyQualifiedTypeName name="java.security.Principal"/>
+    <fullyQualifiedTypeName name="org.w3c.dom.ls.LSOutput"/>
+    <fullyQualifiedTypeName name="java.lang.Double"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
 </qualifiedTypeNameHistroy>

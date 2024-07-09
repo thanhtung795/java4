@@ -15,6 +15,8 @@ D:\FPT\java 4\MyProject\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\31
 \lab3bai2\src\main\java
 D:\FPT\java 4\MyProject\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2729856908.index
 \Lab1\src\main\java
+D:\FPT\java 4\MyProject\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\497043584.index
+\asm\src\main\java
 D:\FPT\java 4\MyProject\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1717964414.index
 \lab4\src\main\java
 D:\FPT\java 4\MyProject\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1819709248.index

@@ -20,7 +20,7 @@ public class lab2bai2 extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		if (!Validate(req, resp)) {
-			// Nếu validation thất bại, dừng lại và không tiếp tục xử lý
+
 			return;
 		}
 		String tenDangNhap = req.getParameter("txtTenDangNhap");
@@ -100,6 +100,10 @@ public class lab2bai2 extends HttpServlet {
 		}
 		if (SoThich == null) {
 			req.setAttribute("errorST", "Vui lòng chọn Sở thích.");
+			isValid = false;
+		}
+		if (ghiChu == null || ghiChu.isEmpty()) {
+			req.setAttribute("errorGC", "Vui lòng nhập ghi chú.");
 			isValid = false;
 		}
 		// Nếu có lỗi, forward lại về trang form và hiển thị thông báo lỗi
