@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+   body {
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .title {
+            margin-bottom: 20px;
+        }
+
+        .btn-custom {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #ffffff;
+            border: none;
+            border-radius: 0.375rem;
+            text-align: center;
+            background-size: 200% 100%;
+            background-position: left;
+            transition: background-position 0.3s ease-in-out;
+        }
+
+        .btn-custom:hover {
+            background-position: right;
+        }
+
+        .btn-user-id {
+            background-image: linear-gradient(to right, #007bff 50%, #0056b3 50%);
+        }
+
+        .btn-title {
+            background-image: linear-gradient(to right, #28a745 50%, #218838 50%);
+        }
+
+        .btn-video-id {
+            background-image: linear-gradient(to right, #ffc107 50%, #e0a800 50%);
+        }
+
+        .btn-favorite {
+            background-image: linear-gradient(to right, #17a2b8 50%, #138496 50%);
+        }
+
+        .btn-report {
+            background-image: linear-gradient(to right, #dc3545 50%, #c82333 50%);
+        }
+
+        .btn-random-video {
+            background-image: linear-gradient(to right, #6f42c1 50%, #563d7c 50%);
+        }
+
+        .btn-year-video {
+            background-image: linear-gradient(to right, #fd7e14 50%, #e8590c 50%);
+        }

@@ -31,14 +31,25 @@ public class lab3bai3 extends HttpServlet {
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
 		String remember = req.getParameter("remember");
-
+		req.setAttribute("username", username);
+		req.setAttribute("password", password);
 		// Kiểm tra checkbox "Remember me?"
 		boolean isRememberChecked = "on".equals(remember);
+		if (username.isEmpty()) {
+			req.setAttribute("message", "Không được bỏ trống tên đăng nhập!");
+			req.getRequestDispatcher("/lab3bai3.jsp").forward(req, resp);
+			return;
+		}
+		if (password.isEmpty()) {
+			req.setAttribute("message", "Không được bỏ trống mật khẩu!");
+			req.getRequestDispatcher("/lab3bai3.jsp").forward(req, resp);
+			return;
+		}
 
 		// kiểm tra tài khoản đăng nhập
 		if (!username.equalsIgnoreCase("tung")) {
 			req.setAttribute("message", "Sai tên đăng nhập!");
-		} else if (password.length() < 6) {
+		} else if (password.length() < 3) {
 			req.setAttribute("message", "Sai mật khẩu!");
 		} else {
 			req.setAttribute("message", "Đăng nhập thành công!");

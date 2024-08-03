@@ -3,63 +3,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-<div class="container-fluid">
-      <h1>Lab 3 Bài 2</h1>
-      <hr>
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="lab3bai1">Bài 1</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="lab3bai2">Bài 2</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="lab3bai3">Bài 3</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="lab3bai4">Bài 4</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+    <div class="container-fluid">
+        <h1>Lab 3 Bài 2</h1>
+        <hr>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="lab3bai1">Bài 1</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="lab3bai2">Bài 2</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="lab3bai3">Bài 3</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="lab3bai4">Bài 4</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </div>
- <div class="container mt-2">
+    <div class="container mt-2">
         <div class="card">
             <div class="card-header">
                 <h3 class="card-title">Thêm mới nhân viên</h3>
             </div>
             <div class="card-body">
-                <form action="form" method="post" enctype="multipart/form-data">
+                <c:if text = "${not empty errorMessage }">
+                <div class="alert alert-danger">${errorMessage}</div>
+                </c:if>
+                <form action="lab3bai2" method="post" enctype="multipart/form-data">
                     <div class="mb-3 row">
                         <label for="fullname" class="col-sm-2 col-form-label">Họ và tên</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="fullname" name="fullname" >
+                            <input type="text" class="form-control" value = "${staff.fullname}" id="fullname" name="fullname" >
                         </div>
                     </div>
-					<div class="mb-3 row">
-						<label for="photo_file" class="col-sm-2 col-form-label">Hình</label>
-						<div class="col-sm-10">
-							<input name="photo" type="file">
-						</div>
-					</div>
-					<div class="mb-3 row">
+                    <div class="mb-3 row">
+                        <label for="photo_file" class="col-sm-2 col-form-label">Hình</label>
+                        <div class="col-sm-10">
+                            <input name="photo" value = "${staff.photo}" type="file">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
                         <label for="birthday" class="col-sm-2 col-form-label">Ngày sinh</label>
                         <div class="col-sm-10">
-                            <input type="date" class="form-control" id="birthday" name="birthday" >
+                            <input type="date" class="form-control" id="birthday" value = "${staff.birthday}" name="birthday" >
                         </div>
                     </div>
                     <div class="mb-3 row">
@@ -75,7 +76,7 @@
                         <legend class="col-form-label col-sm-2 pt-0">Giới tính</legend>
                         <div class="col-sm-10">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" id="genderMale" name="gender" value="true" >
+                                <input class="form-check-input" type="radio" id="genderMale" name="gender"  value="true" >
                                 <label class="form-check-label" for="genderMale">Nam</label>
                             </div>
                             <div class="form-check form-check-inline">

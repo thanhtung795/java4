@@ -26,8 +26,18 @@ public class lab3bai2 extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		Staff staff = new Staff();
+		req.setAttribute("staff", staff);
+
 		try {
-			Staff staff = new Staff();
+			// Validate họ và tên
+			String fullname = req.getParameter("fullname");
+			if (fullname == null || fullname.isEmpty()) {
+				req.setAttribute("errorMessage", "Họ và tên không được để trống.");
+				req.getRequestDispatcher("/lab3bai2.jsp").forward(req, resp);
+				return;
+			}
+			staff.setFullname(fullname);
 
 			// Tạo thư mục lưu trữ file nếu chưa tồn tại
 			File dir = new File(req.getServletContext().getRealPath("/files"));
@@ -46,26 +56,47 @@ public class lab3bai2 extends HttpServlet {
 			// Đọc tham số vào các thuộc tính của bean staff
 			BeanUtils.populate(staff, req.getParameterMap());
 
-			// Lấy và định dạng ngày sinh
-			String birthdayStr = req.getParameter("birthday"); // Đảm bảo rằng bạn có input với name="birthday" trong
-																// form.jsp
-			SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd"); // Định dạng đầu vào (giả sử từ input
-																				// type="date")
-			SimpleDateFormat outputFormat = new SimpleDateFormat("dd/MM/yyyy"); // Định dạng đầu ra
-			Date birthday = inputFormat.parse(birthdayStr);
-			String formattedBirthday = outputFormat.format(birthday);
+			// Validate ngày sinh
+			String birthdayStr = req.getParameter("birthday");
+			if (birthdayStr == null || birthdayStr.isEmpty()) {
+				req.setAttribute("errorMessage", "Ngày sinh không được để trống.");
+				req.getRequestDispatcher("/lab3bai2.jsp").forward(req, resp);
+				return;
+			}
+			SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd");
+			Date birthday;
+			try {
+				birthday = inputFormat.parse(birthdayStr);
+			} catch (ParseException e) {
+				req.setAttribute("errorMessage", "Định dạng ngày sinh không hợp lệ.");
+				req.getRequestDispatcher("/lab3bai2.jsp").forward(req, resp);
+				return;
+			}
+			staff.setBirthday(new java.sql.Date(birthday.getTime()));
 
-			// Đặt ngày sinh đã định dạng vào staff
-			staff.setBirthday(new java.sql.Date(birthday.getTime())); // Giả sử Staff có setter cho java.sql.Date
-			req.setAttribute("formattedBirthday", formattedBirthday);
+			// Validate quốc tịch
+			String country = req.getParameter("country");
+			if (country == null || country.isEmpty()) {
+				req.setAttribute("errorMessage", "Quốc tịch không được để trống.");
+				req.getRequestDispatcher("/lab3bai2.jsp").forward(req, resp);
+				return;
+			}
+
+			// Validate giới tính
+			String gender = req.getParameter("gender");
+			if (gender == null || gender.isEmpty()) {
+				req.setAttribute("errorMessage", "Giới tính không được để trống.");
+				req.getRequestDispatcher("/lab3bai2.jsp").forward(req, resp);
+				return;
+			}
 
 			// Chia sẻ với result.jsp
 			req.setAttribute("staff", staff);
 			req.getRequestDispatcher("/resultBai2.jsp").forward(req, resp);
-		} catch (ParseException e) {
-			e.printStackTrace();
 		} catch (Exception e) {
 			e.printStackTrace();
+			req.setAttribute("errorMessage", "Có lỗi xảy ra trong quá trình xử lý.");
+			req.getRequestDispatcher("/lab3bai2.jsp").forward(req, resp);
 		}
 	}
 }

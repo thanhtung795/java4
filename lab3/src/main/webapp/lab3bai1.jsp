@@ -38,15 +38,31 @@
         </div>
       </nav>
     </div>
-    <div class="container">
-      <h1>Upload</h1>
-      <form action="Lab3bai1" method="post" enctype="multipart/form-data">
-        Hình ảnh: <input type="file" name="photo_file"><br>
-        Tài liệu: <input type="file" name="doc_file"><br>
+  <div class="container">
+    <h1>Upload</h1>
+    <form action="lab3bai1" method="post" enctype="multipart/form-data">
+        Hình ảnh: 
+        <input type="file" name="photo_file" class="form-control"><br>
+        
+
+        <c:if test="${not empty imgError}">
+            <div class="alert alert-danger">${imgError}</div>
+        </c:if>
+
+        Tài liệu: 
+        <input type="file" name="doc_file" class="form-control"><br>
+        
+        
+        
+        <c:if test="${not empty docError}">
+            <div class="alert alert-danger">${docError}</div>
+        </c:if>
+        
         <hr>
         <button class="btn btn-primary">Upload</button>
-      </form>
-    </div>
+    </form>
+</div>
+
   </body>
 
   </html>

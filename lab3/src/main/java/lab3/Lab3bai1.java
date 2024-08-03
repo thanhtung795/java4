@@ -13,32 +13,47 @@ import javax.servlet.http.Part;
 
 @MultipartConfig
 @WebServlet("/lab3bai1")
-
 public class Lab3bai1 extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		req.getRequestDispatcher("/lab3bai1.jsp").forward(req, resp);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// Mã xử lý file upload ở đây
-		// đường dẫn thư mục tính từ gốc của website
 		File dir = new File(req.getServletContext().getRealPath("/files"));
-		if (!dir.exists()) { // tạo nếu chưa tồn tại
+		if (!dir.exists()) {
 			dir.mkdirs();
 		}
-		// lưu các file upload vào thư mục files
-		Part photo = req.getPart("photo_file"); // file hình
-		File photoFile = new File(dir, photo.getSubmittedFileName());
-		photo.write(photoFile.getAbsolutePath());
-		Part doc = req.getPart("doc_file"); // file tài liệu
-		File docFile = new File(dir, doc.getSubmittedFileName());
-		doc.write(docFile.getAbsolutePath());
-		// chia sẻ cho result.jsp để hiển thị
-		req.setAttribute("img", photoFile);
-		req.setAttribute("doc", docFile);
+
+		Part photo = req.getPart("photo_file");
+		Part doc = req.getPart("doc_file");
+
+		// Kiểm tra và xử lý file ảnh
+		if (photo != null && photo.getSize() > 0 && photo.getSubmittedFileName() != null
+				&& !photo.getSubmittedFileName().isEmpty()) {
+			File photoFile = new File(dir, photo.getSubmittedFileName());
+			photo.write(photoFile.getAbsolutePath());
+			req.setAttribute("img", photoFile);
+		} else {
+			req.setAttribute("imgError", "Không thể upload hình ảnh.");
+			req.setAttribute("img", photo); // Giữ lại phần thông tin file
+			req.getRequestDispatcher("/lab3bai1.jsp").forward(req, resp);
+
+		}
+
+		// Kiểm tra và xử lý file tài liệu
+		if (doc != null && doc.getSize() > 0 && doc.getSubmittedFileName() != null
+				&& !doc.getSubmittedFileName().isEmpty()) {
+			File docFile = new File(dir, doc.getSubmittedFileName());
+			doc.write(docFile.getAbsolutePath());
+			req.setAttribute("doc", docFile);
+		} else {
+			req.setAttribute("docError", "Không thể upload tài liệu.");
+			req.setAttribute("doc", doc); // Giữ lại phần thông tin file
+			req.getRequestDispatcher("/lab3bai1.jsp").forward(req, resp);
+			return;
+		}
 
 		req.getRequestDispatcher("/resultBai1.jsp").forward(req, resp);
 	}
