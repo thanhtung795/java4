@@ -77,8 +77,38 @@
 			</div>
 		</div>
 		<div class="col-md-7 ">
+			<div class="input-group mb-3 mt-3">
+				<form action="search" method="post">
+					<div class="input-group">
+						<input type="text" class="form-control" name="keyword"
+							aria-describedby="btnGroupAddon2">
+						<button class="btn btn-outline-secondary" type="submit"
+							id="button-addon2">Tìm kiếm</button>
+					</div>
+				</form>
+				<div class="input-group mb-3 mt-3">
+					<!-- Bỏ form vì không cần gửi yêu cầu đến server -->
+					<div class="form-check">
+						<input id="admin" type="radio" class="form-check-input"
+							name="roleFilter" value="admin"> <label for="admin"
+							class="form-check-label">Admin</label>
+					</div>
+					<div class="form-check">
+						<input id="user" type="radio" class="form-check-input"
+							name="roleFilter" value="user"> <label for="user"
+							class="form-check-label">User</label>
+					</div>
+					<div class="form-check">
+						<input id="all" type="radio" class="form-check-input"
+							name="roleFilter" value="all" checked> <label for="all"
+							class="form-check-label">All</label>
+					</div>
+				</div>
+
+			</div>
 			<div class="container-fluid">
-				<table class="table table-hover table-striped table-bordered m-auto">
+				<table id="userTable"
+					class="table table-hover table-striped table-bordered m-auto">
 					<thead class="thead-dark">
 						<tr>
 							<th scope="col">ID</th>
@@ -91,20 +121,20 @@
 					</thead>
 					<tbody>
 						<c:forEach var="item" items="${users}">
-							<tr>
+							<tr class="${item.admin ? 'admin' : 'user'}">
 								<td>${item.id}</td>
 								<td>${item.password}</td>
 								<td>${item.fullname}</td>
 								<td>${item.email}</td>
 								<td>${item.admin ? 'Admin' : 'User'}</td>
-								<td><a href="edit?id=${item.id}">Edit</a>
-									<a href="delete?id=${item.id}">Remove</a>
-								</td>
+								<td><a href="edit?id=${item.id}">Edit</a> <a
+									href="delete?id=${item.id}">Remove</a></td>
 							</tr>
 						</c:forEach>
 					</tbody>
 				</table>
 			</div>
+
 			<div class="container-fluid">
 				<div class="row">
 					<nav aria-label="Page navigation example" class="m-auto">
@@ -120,6 +150,29 @@
 
 		</div>
 	</div>
+	<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const roleRadios = document.querySelectorAll('input[name="roleFilter"]');
+        const userTable = document.getElementById('userTable');
+        const rows = userTable.getElementsByTagName('tr');
+
+        roleRadios.forEach(radio => {
+            radio.addEventListener('change', function () {
+                const role = this.value;
+                for (let i = 1; i < rows.length; i++) {
+                    const row = rows[i];
+                    if (role === 'all') {
+                        row.style.display = '';
+                    } else if (row.classList.contains(role)) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                }
+            });
+        });
+    });
+</script>
 
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 	<script

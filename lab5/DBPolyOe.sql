@@ -28,19 +28,31 @@ GO
 -- Thêm dữ liệu mẫu vào bảng Users
 INSERT INTO Users (Password, Fullname, Email, admin)
 VALUES
-('password123', N'Nguyễn Văn A', 'nguyenvana@example.com', 1),
-('password123', N'Nguyễn Văn b', 'nguyenvana@example.com', 0),
-('password123', N'Nguyễn Văn c', 'nguyenvana@example.com', 0),
-('password123', N'Nguyễn Văn d', 'nguyenvana@example.com', 0),
-('password123', N'Nguyễn Văn e', 'nguyenvana@example.com', 0),
-('password123', N'Nguyễn Văn f', 'nguyenvana@example.com', 1),
-('password123', N'Nguyễn Văn g', 'nguyenvana@example.com', 1)
-GO
+('abc123', N'Võ Thanh Tùng', 'tungvt@gmail.com', 1),
+('def456', N'Lê Thị Hồng', 'honglt@example.com', 0),
+('ghi789', N'Trần Minh Hoàng', 'hoangtm@example.com', 0),
+('jkl012', N'Phạm Quang Huy', 'huyqp@example.com', 0),
+('mno345', N'Nguyễn Thị Thu', 'thunt@example.com', 1),
+('pqr678', N'Đỗ Văn Bình', 'binhdv@example.com', 1),
+('stu901', N'Huỳnh Anh Khoa', 'khoaha@example.com', 0);
 
+GO
 
 -- Thêm dữ liệu mẫu vào bảng Users
 INSERT INTO Users (Password, Fullname, Email, admin)
 VALUES
-('123', N'Võ Thanh Tùng', 'tungvt@gmail.com', 1)
+('vwx234', N'Ngô Văn Anh', 'anhnv@example.com', 0),
+('yz1234', N'Hoàng Thanh Sơn', 'sonht@example.com', 1),
+('lmn890', N'Phan Hữu Phước', 'phuocph@example.com', 0),
+('opq345', N'Trịnh Minh Tuấn', 'tuanmt@example.com', 0),
+('rst678', N'Lê Vân Anh', 'vananhl@example.com', 0),
+('uvw123', N'Nguyễn Hải Yến', 'yenhn@example.com', 1),
+('abc901', N'Vũ Hồng Quân', 'quanhv@example.com', 1),
+('def234', N'Trần Quang Minh', 'minhtq@example.com', 0),
+('ghi567', N'Phạm Thanh Bình', 'binhpt@example.com', 0),
+('jkl890', N'Nguyễn Quốc Bảo', 'baoquoc@example.com', 1);
 
-select * from Users
+GO
+
+select * from Users where admin = 0
+

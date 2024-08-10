@@ -160,7 +160,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="D:\FPT\java 4\MyProject\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="D:\FPT\java 4\MyProject\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\lab8" path="/lab8" reloadable="true" source="org.eclipse.jst.jee.server:lab8"/></Host>
+      <Context docBase="D:\FPT\java 4\MyProject\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="D:\FPT\java 4\MyProject\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\lab7-maven" path="/lab7-maven" reloadable="true" source="org.eclipse.jst.jee.server:lab7-maven"/><Context docBase="D:\FPT\java 4\MyProject\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\BaiThiBuoi1" path="/BaiThiBuoi1" reloadable="true" source="org.eclipse.jst.jee.server:BaiThiBuoi1"/></Host>
     </Engine>
   </Service>
 </Server>

@@ -33,6 +33,8 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="false"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="false"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="D:\FPT\java 4\MyProject\BaiThiBuoi1"/>
+			<item value="D:\FPT\java 4\MyProject\BaiThiBuoi1\src"/>
 			<item value="D:\FPT\java 4\MyProject\lab8tn"/>
 			<item value="D:\FPT\java 4\MyProject\lab7\Lab7java4spring2023"/>
 			<item value="D:\FPT\java 4\MyProject\lab7"/>

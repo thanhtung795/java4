@@ -79,6 +79,7 @@
 	</section>
 	<section name="wizardPage">
 		<list key="groupId">
+			<item value="BaiThiBuoi1"/>
 			<item value="lab8"/>
 			<item value="lab7-maven"/>
 			<item value="baithemlab4"/>
@@ -97,6 +98,7 @@
 			<item value="lab4"/>
 		</list>
 		<list key="artifactId">
+			<item value="BaiThiBuoi1"/>
 			<item value="lab8"/>
 			<item value="lab7-maven"/>
 			<item value="baithemlab4"/>

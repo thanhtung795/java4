@@ -13,7 +13,7 @@ import entity.User;
 
 @WebServlet({ "/login", "/Sign-In", "/logout", "/login/*" })
 public class Bai3_LoginServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+	privafte static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
